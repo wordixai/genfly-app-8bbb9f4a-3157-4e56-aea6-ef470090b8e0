@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Creepster&family=Fredoka:wght@300;400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,96 +7,192 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Fredoka', cursive;
   }
 }
+
+@layer components {
+  .pop-art-bg {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff1493 25%, #ffcc00 50%, #ff6b35 75%, #ff1493 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .dots-pattern {
+    background-image: radial-gradient(circle at 20px 20px, #fff 3px, transparent 4px),
+                      radial-gradient(circle at 60px 60px, #ffcc00 2px, transparent 3px),
+                      radial-gradient(circle at 40px 80px, #ff1493 2px, transparent 3px);
+    background-size: 80px 80px, 100px 100px, 120px 120px;
+    background-position: 0 0, 20px 20px, 40px 40px;
+  }
+
+  .comic-frame {
+    border: 6px solid #000;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 8px 8px 0px #ff6b35, 16px 16px 0px #ff1493;
+    transform: rotate(-1deg);
+    transition: all 0.3s ease;
+  }
+
+  .comic-frame:hover {
+    transform: rotate(1deg) scale(1.05);
+    box-shadow: 12px 12px 0px #ff6b35, 20px 20px 0px #ff1493;
+  }
+
+  .comic-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #fff, #ffcc00);
+    border-radius: 25px;
+    z-index: -1;
+  }
+
+  .handwritten-btn {
+    font-family: 'Kalam', cursive;
+    background: linear-gradient(45deg, #ff6b35, #ff1493);
+    border: 4px solid #000;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 2px 2px 0px #000;
+    box-shadow: 4px 4px 0px #000;
+    transform: rotate(-2deg);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .handwritten-btn:hover {
+    transform: rotate(2deg) translateY(-2px);
+    animation: bounce 0.6s ease;
+    box-shadow: 6px 6px 0px #000;
+  }
+
+  .handwritten-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .handwritten-btn:hover::before {
+    left: 100%;
+  }
+
+  .pop-title {
+    font-family: 'Creepster', cursive;
+    background: linear-gradient(45deg, #ff6b35, #ff1493, #ffcc00);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+    text-shadow: 3px 3px 0px #000;
+  }
+
+  .retro-card {
+    background: linear-gradient(135deg, #fff 0%, #ffe4e1 100%);
+    border: 4px solid #000;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .retro-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 10px 10px, #ff1493 2px, transparent 3px),
+                radial-gradient(circle at 30px 30px, #ffcc00 1px, transparent 2px);
+    background-size: 40px 40px, 60px 60px;
+    opacity: 0.1;
+    z-index: 1;
+  }
+
+  .retro-card > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .explosion-effect {
+    position: relative;
+  }
+
+  .explosion-effect::after {
+    content: 'POW!';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: linear-gradient(45deg, #ffcc00, #ff6b35);
+    color: #000;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transform: rotate(15deg);
+    animation: pop 2s ease infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: rotate(2deg) translateY(-2px); }
+  40% { transform: rotate(2deg) translateY(-10px); }
+  60% { transform: rotate(2deg) translateY(-5px); }
+}
+
+@keyframes pop {
+  0%, 100% { transform: rotate(15deg) scale(1); }
+  50% { transform: rotate(15deg) scale(1.1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating { animation: float 3s ease-in-out infinite; }
